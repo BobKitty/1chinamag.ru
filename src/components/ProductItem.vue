@@ -14,32 +14,33 @@
           {{ product.price }} ₽
         </span>
 
-    <ul class="colors colors--black">
-      <li class="colors__item" v-for="itemColor in product.colors" :key="itemColor.color"
-          v-show="itemColor.color !== 'default'">
-        <label class="colors__label">
-          <input class="colors__radio sr-only" type="radio" :value="itemColor.color"
-                 :name="product.code"
-                 @click="changeImgColor(itemColor.img)">
-          <span class="colors__value" :style="{'background-color': itemColor.color}">
-              </span>
-        </label>
-      </li>
-    </ul>
+    <BaseListColors :color-arr="productColors" @changeColor="changeColor" :type-input="'radio'"/>
   </li>
 </template>
 
 <script>
+import BaseListColors from '@/components/BaseListColors.vue';
+
 export default {
+  components: {
+    BaseListColors,
+  },
   props: ['product'],
   data() {
     return {
       currentImg: this.product.image,
+      productColors: [],
     };
   },
+  created() {
+    for (let i = 0; i < this.product.colors.length; i += 1) {
+      this.productColors.push(this.product.colors[i].color);
+    }
+  },
   methods: {
-    changeImgColor(img) {
-      this.currentImg = img;
+    changeColor(value) {
+      this.currentImg = this.product.colors
+        .filter((colorObj) => colorObj.color === value)[0].img;
     },
   },
 };

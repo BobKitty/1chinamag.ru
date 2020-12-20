@@ -29,16 +29,8 @@
 
       <fieldset class="form__block">
         <legend class="form__legend">Цвет</legend>
-        <ul class="colors">
-          <li class="colors__item" v-for="color in arrColors" :key="color">
-            <label class="colors__label">
-              <input class="colors__radio sr-only" type="checkbox" :name="color" :value="color"
-                     v-model="currentColorsId">
-              <span class="colors__value" :style="{'background-color': color}">
-                  </span>
-            </label>
-          </li>
-        </ul>
+        <BaseListColors :color-arr="arrColors" @changeColor="changeColor"
+                        :type-input="'checkbox'"/>
       </fieldset>
 
       <fieldset class="form__block" v-show="false">
@@ -115,8 +107,12 @@
 </template>
 <script>
 import categories from '@/data/categories';
+import BaseListColors from '@/components/BaseListColors.vue';
 
 export default {
+  components: {
+    BaseListColors,
+  },
   data() {
     return {
       currentPriceFrom: 0,
@@ -146,6 +142,9 @@ export default {
     },
   },
   methods: {
+    changeColor(value) {
+      this.currentColorsId = value;
+    },
     submit() {
       this.$emit('update:priceFrom', this.currentPriceFrom);
       this.$emit('update:priceTo', this.currentPriceTo);

@@ -27,7 +27,6 @@ export default [
         color: '#0d00ff',
       },
     ],
-    forFilterColors: ['#fe0000', '#fffc00', '#1eff00', '#0d00ff'],
   },
   {
     code: 156132,
@@ -42,7 +41,6 @@ export default [
         color: '#000000',
       },
     ],
-    forFilterColors: ['#000000'],
   },
   {
     code: 154998,
@@ -57,7 +55,6 @@ export default [
         color: '#000000',
       },
     ],
-    forFilterColors: ['#000000'],
   },
   {
     code: 153826,
@@ -72,7 +69,6 @@ export default [
         color: '#000000',
       },
     ],
-    forFilterColors: ['#000000'],
   },
   {
     code: 153770,
@@ -87,7 +83,6 @@ export default [
         color: '#fe0000',
       },
     ],
-    forFilterColors: ['#fe0000'],
   },
   {
     code: 152414,
@@ -102,7 +97,6 @@ export default [
         color: 'default',
       },
     ],
-    forFilterColors: null,
   },
   {
     code: 150720,
@@ -117,7 +111,6 @@ export default [
         color: '#fe0000',
       },
     ],
-    forFilterColors: ['#fe0000'],
   },
   {
     code: 150711,
@@ -132,7 +125,6 @@ export default [
         color: 'default',
       },
     ],
-    forFilterColors: null,
   },
   {
     code: 39050,
@@ -147,7 +139,6 @@ export default [
         color: 'default',
       },
     ],
-    forFilterColors: null,
   },
   {
     code: 38909,
@@ -162,7 +153,6 @@ export default [
         color: 'default',
       },
     ],
-    forFilterColors: null,
   },
   {
     code: 12327,
@@ -182,7 +172,6 @@ export default [
         color: '#404ce0',
       },
     ],
-    forFilterColors: ['#fe0000', '#404ce0'],
   },
   {
     code: 156168,
@@ -197,7 +186,6 @@ export default [
         color: '#000000',
       },
     ],
-    forFilterColors: ['#000000'],
   },
   {
     code: 156804,
@@ -212,7 +200,6 @@ export default [
         color: 'default',
       },
     ],
-    forFilterColors: null,
   },
   {
     code: 156407,
@@ -227,7 +214,6 @@ export default [
         color: 'default',
       },
     ],
-    forFilterColors: null,
   },
   {
     code: 154766,
@@ -242,7 +228,6 @@ export default [
         color: '#0d00ff',
       },
     ],
-    forFilterColors: ['#0d00ff'],
   },
   {
     code: 153749,
@@ -257,7 +242,6 @@ export default [
         color: 'default',
       },
     ],
-    forFilterColors: null,
   },
   {
     code: 153814,
@@ -272,7 +256,6 @@ export default [
         color: '#0d00ff',
       },
     ],
-    forFilterColors: ['#0d00ff'],
   },
   {
     code: 153300,
@@ -287,7 +270,6 @@ export default [
         color: '#000000',
       },
     ],
-    forFilterColors: ['#000000'],
   },
   {
     code: 153017,
@@ -302,6 +284,5 @@ export default [
         color: 'default',
       },
     ],
-    forFilterColors: null,
   },
 ];

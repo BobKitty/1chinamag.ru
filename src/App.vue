@@ -56,9 +56,9 @@ export default {
   },
   created() {
     for (let i = 0; i < products.length; i += 1) {
-      if (products[i].forFilterColors !== null) {
-        for (let j = 0; j < products[i].forFilterColors.length; j += 1) {
-          this.productsColorsAll.push(products[i].forFilterColors[j]);
+      if (products[i].colors[0].color !== 'default') {
+        for (let j = 0; j < products[i].colors.length; j += 1) {
+          this.productsColorsAll.push(products[i].colors[j].color);
         }
       }
     }
@@ -88,10 +88,10 @@ export default {
           let colorId = 0;
           const thisFilterColorsId = this.filterColorsId;
 
-          if (product.forFilterColors !== null) {
-            for (let i = 0; i < product.forFilterColors.length; i += 1) {
+          if (product.colors[0].color !== 'default') {
+            for (let i = 0; i < product.colors.length; i += 1) {
               for (let j = 0; j < thisFilterColorsId.length; j += 1) {
-                if (product.forFilterColors[i] === thisFilterColorsId[j]) {
+                if (product.colors[i].color === thisFilterColorsId[j]) {
                   colorId += 1;
                 }
               }

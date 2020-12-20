@@ -46,14 +46,12 @@ export default {
     },
     prevPage() {
       if (this.page > 1) {
-        this.page -= 1;
-        this.paginate(this.page);
+        this.paginate(this.page - 1);
       }
     },
     nextPage() {
       if (this.page < this.pages) {
-        this.page += 1;
-        this.paginate(this.page);
+        this.paginate(this.page + 1);
       }
     },
   },
