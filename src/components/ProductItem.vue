@@ -14,7 +14,9 @@
           {{ product.price }} ₽
         </span>
 
-    <BaseListColors :color-arr="productColors" @changeColor="changeColor" :type-input="'radio'"/>
+    <BaseListColors :color-arr="productColors"
+                    :current-colors.sync="currentColors"
+                    :type-input="'radio'"/>
   </li>
 </template>
 
@@ -30,6 +32,7 @@ export default {
     return {
       currentImg: this.product.image,
       productColors: [],
+      currentColors: [],
     };
   },
   created() {
@@ -37,8 +40,8 @@ export default {
       this.productColors.push(this.product.colors[i].color);
     }
   },
-  methods: {
-    changeColor(value) {
+  watch: {
+    currentColors(value) {
       this.currentImg = this.product.colors
         .filter((colorObj) => colorObj.color === value)[0].img;
     },

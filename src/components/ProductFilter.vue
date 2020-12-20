@@ -29,8 +29,8 @@
 
       <fieldset class="form__block">
         <legend class="form__legend">Цвет</legend>
-        <BaseListColors :color-arr="arrColors" @changeColor="changeColor"
-                        :type-input="'checkbox'"/>
+        <BaseListColors :color-arr="arrColors" :type-input="'checkbox'"
+                        :current-colors.sync="currentColorsId"/>
       </fieldset>
 
       <fieldset class="form__block" v-show="false">
