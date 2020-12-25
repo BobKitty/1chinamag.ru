@@ -29,8 +29,8 @@
 
       <fieldset class="form__block">
         <legend class="form__legend">Цвет</legend>
-        <BaseListColors :color-arr="arrColors" :type-input="'checkbox'"
-                        :current-colors.sync="currentColorsId"/>
+        <BaseListColors :color-arr="arrColors"
+                        :current-color.sync="currentColorId"/>
       </fieldset>
 
       <fieldset class="form__block" v-show="false">
@@ -118,10 +118,10 @@ export default {
       currentPriceFrom: 0,
       currentPriceTo: 0,
       currentCategoryId: 0,
-      currentColorsId: [],
+      currentColorId: '',
     };
   },
-  props: ['priceFrom', 'priceTo', 'categoryId', 'colorsId', 'arrColors'],
+  props: ['priceFrom', 'priceTo', 'categoryId', 'colorId', 'arrColors'],
   computed: {
     categories() {
       return categories;
@@ -138,24 +138,21 @@ export default {
       this.currentCategoryId = value;
     },
     colorsId(value) {
-      this.currentColorsId = value;
+      this.currentColorId = value;
     },
   },
   methods: {
-    changeColor(value) {
-      this.currentColorsId = value;
-    },
     submit() {
       this.$emit('update:priceFrom', this.currentPriceFrom);
       this.$emit('update:priceTo', this.currentPriceTo);
       this.$emit('update:categoryId', this.currentCategoryId);
-      this.$emit('update:colorsId', this.currentColorsId);
+      this.$emit('update:colorId', this.currentColorId);
     },
     reset() {
       this.$emit('update:priceFrom', 0);
       this.$emit('update:priceTo', 0);
       this.$emit('update:categoryId', 0);
-      this.$emit('update:colorsId', []);
+      this.$emit('update:colorId', []);
     },
   },
 };

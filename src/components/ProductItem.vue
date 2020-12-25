@@ -11,12 +11,12 @@
     </h3>
 
     <span class="catalog__price">
-          {{ product.price }} ₽
-        </span>
+      {{ product.price }} ₽
+    </span>
 
     <BaseListColors :color-arr="productColors"
-                    :current-colors.sync="currentColors"
-                    :type-input="'radio'"/>
+                    :current-color.sync="currentColor"
+                    :is-radio-black-border="true"/>
   </li>
 </template>
 
@@ -32,7 +32,7 @@ export default {
     return {
       currentImg: this.product.image,
       productColors: [],
-      currentColors: [],
+      currentColor: '',
     };
   },
   created() {
@@ -41,7 +41,7 @@ export default {
     }
   },
   watch: {
-    currentColors(value) {
+    currentColor(value) {
       this.currentImg = this.product.colors
         .filter((colorObj) => colorObj.color === value)[0].img;
     },

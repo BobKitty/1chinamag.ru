@@ -1,10 +1,11 @@
 <template>
-  <ul class="colors" :class="{'colors--black': typeInput === 'radio'}">
+  <ul class="colors" :class="{'colors--black': isRadioBlackBorder}">
     <li class="colors__item" v-for="color in colorArr" :key="color">
       <label class="colors__label">
-        <input class="colors__radio sr-only" :type="typeInput" :value="color"
-               :name="color" v-model="currentArr"
-               @change="getCurrentArr">
+        <input class="colors__radio sr-only"
+               type="radio"
+               :value="color"
+               v-model="computedColor">
         <span class="colors__value" :style="{'background-color': color}">
               </span>
       </label>
@@ -14,20 +15,15 @@
 
 <script>
 export default {
-  props: ['colorArr', 'typeInput', 'currentColors'],
-  data() {
-    return {
-      currentArr: [],
-    };
-  },
-  methods: {
-    getCurrentArr() {
-      this.$emit('update:currentColors', this.currentArr);
-    },
-  },
-  watch: {
-    currentColors(value) {
-      this.currentArr = value;
+  props: ['colorArr', 'currentColor', 'isRadioBlackBorder'],
+  computed: {
+    computedColor: {
+      get() {
+        return this.currentColor;
+      },
+      set(v) {
+        this.$emit('update:currentColor', v);
+      },
     },
   },
 };

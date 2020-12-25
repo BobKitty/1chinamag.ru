@@ -13,7 +13,7 @@
     <div class="content__catalog">
 
       <ProductFilter :price-from.sync="filterPriceFrom" :price-to.sync="filterPriceTo"
-                     :category-id.sync="filterCategoryId" :colors-id.sync="filterColorsId"
+                     :category-id.sync="filterCategoryId" :color-id.sync="filterColorsId"
                      :arr-colors="productsColorsAll"/>
 
       <section class="catalog">
@@ -46,7 +46,7 @@ export default {
       filterPriceFrom: 0,
       filterPriceTo: 0,
       filterCategoryId: 0,
-      filterColorsId: [],
+      filterColorsId: '',
 
       productsColorsAll: [],
 
@@ -85,20 +85,16 @@ export default {
 
       if (this.filterColorsId.length > 0) {
         filteredProducts = filteredProducts.filter((product) => {
-          let colorId = 0;
-          const thisFilterColorsId = this.filterColorsId;
-
+          let isTrue = false;
           if (product.colors[0].color !== 'default') {
             for (let i = 0; i < product.colors.length; i += 1) {
-              for (let j = 0; j < thisFilterColorsId.length; j += 1) {
-                if (product.colors[i].color === thisFilterColorsId[j]) {
-                  colorId += 1;
-                }
+              if (product.colors[i].color === this.filterColorsId) {
+                isTrue = true;
+                break;
               }
             }
           }
-
-          return (colorId > 0);
+          return isTrue;
         });
       }
 
