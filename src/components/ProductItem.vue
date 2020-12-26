@@ -1,6 +1,7 @@
 <template>
   <li class="catalog__item">
-    <a class="catalog__pic" href="#">
+    <a class="catalog__pic" href="#"
+       @click.prevent="gotoPage('product', {id: product.code})">
       <img :src="currentImg" :alt="product.title">
     </a>
 
@@ -11,23 +12,28 @@
     </h3>
 
     <span class="catalog__price">
-      {{ product.price }} ₽
+      {{ product.price | numberFormat }} ₽
     </span>
 
-    <BaseListColors :color-arr="productColors"
-                    :current-color.sync="currentColor"
-                    :is-radio-black-border="true"/>
+    <BaseListColors class="checkboxBorderBlack"
+                    :color-arr="productColors"
+                    :current-color.sync="currentColor"/>
   </li>
 </template>
 
 <script>
 import BaseListColors from '@/components/BaseListColors.vue';
+import gotoPage from '@/helpers/gotoPage';
+import numberFormat from '@/helpers/numberFormat';
 
 export default {
   components: {
     BaseListColors,
   },
   props: ['product'],
+  filters: {
+    numberFormat,
+  },
   data() {
     return {
       currentImg: this.product.image,
@@ -46,5 +52,14 @@ export default {
         .filter((colorObj) => colorObj.color === value)[0].img;
     },
   },
+  methods: {
+    gotoPage,
+  },
 };
 </script>
+
+<style>
+.checkboxBorderBlack label {
+  --border-color: #222;
+}
+</style>

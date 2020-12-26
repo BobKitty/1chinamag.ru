@@ -1,5 +1,5 @@
 <template>
-  <ul class="colors" :class="{'colors--black': isRadioBlackBorder}">
+  <ul class="colors">
     <li class="colors__item" v-for="color in colorArr" :key="color">
       <label class="colors__label">
         <input class="colors__radio sr-only"
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  props: ['colorArr', 'currentColor', 'isRadioBlackBorder'],
+  props: ['colorArr', 'currentColor'],
   computed: {
     computedColor: {
       get() {
